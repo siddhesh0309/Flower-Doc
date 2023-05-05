@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/asap_bold</item>
+        <item>@font/asap_medium_italic</item>
+        <item>@font/denk_one</item>
+        <item>@font/fjalla_one</item>
+        <item>@font/poppins_light</item>
+    </array>
+</resources>

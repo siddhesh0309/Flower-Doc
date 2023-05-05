@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_200"
+    tools:context=".mainPageActivity.RoseDetection">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:elevation="8dp"
+        android:id="@+id/rel1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:elevation="4dp"
+            android:gravity="end"
+            android:background="@color/new_color">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="80dp"
+                android:layout_height="25dp"
+                android:id="@+id/animation_view"
+                app:lottie_rawRes="@raw/arrow_right"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="-120dp"
+                android:layout_alignParentStart="true"/>
+
+            <TextView
+                android:id="@+id/chooseOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choose"
+                android:textColor="@color/white"
+                android:fontFamily="@font/metropolis_bold"
+                android:letterSpacing="0.06"
+                android:textAllCaps="true"
+                android:textSize="16sp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/chooseOne"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/mGalleryButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/add_post_btn_ripple"
+                    android:elevation="2dp"
+                    android:src="@drawable/add_gallry_detect"
+                    android:padding="8dp"
+                    android:layout_margin="6dp"/>
+
+             <!--   <ImageView
+                    android:id="@+id/mCameraButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="6dp"
+                    android:background="@drawable/add_post_btn_ripple"
+                    android:elevation="2dp"
+                    android:padding="8dp"
+                    android:src="@drawable/add_image_detect" />-->
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_below="@id/rel1">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="290dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="6dp">
+
+            <ImageView
+                android:id="@+id/mPhotoImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/mDetectButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            android:layout_below="@id/cardView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:alpha="0"
+            android:background="@drawable/button_login_riple"
+            android:fontFamily="@font/metropolis_bold"
+            android:letterSpacing="0.1"
+            android:includeFontPadding="false"
+            android:text="@string/buttonDiagnose"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/detectAs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detect as:"
+            android:fontFamily="@font/metropolis_regular"
+            android:textSize="17sp"
+            android:alpha="0"
+            android:textColor="@color/black"
+            android:layout_below="@id/mDetectButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:letterSpacing="0.03"/>
+
+        <TextView
+            android:id="@+id/mResultTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/mShowPrecaution"
+            android:layout_below="@id/detectAs"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="30dp"
+            android:alpha="0"
+            android:letterSpacing="0.06"
+            android:fontFamily="@font/metropolis_bold"
+            android:padding="4dp"
+            android:text="@string/resultTxt"
+            android:textAlignment="center"
+            android:textColor="@color/new_color"
+            android:textSize="23sp" />
+
+        <Button
+            android:id="@+id/mShowPrecaution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="30dp"
+            android:alpha="0"
+            android:background="@drawable/button_detect_riple"
+            android:fontFamily="@font/metropolis_regular"
+            android:includeFontPadding="false"
+            android:letterSpacing="0.02"
+            android:onClick="precaution"
+            android:padding="5dp"
+            android:text="@string/showPrecautions"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/demoTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:padding="6dp"
+            android:background="@drawable/text_background"
+            android:alpha="1"
+            android:fontFamily="@font/metropolis_regular"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="4dp"
+            android:text="@string/detect_txt"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,228 @@
+<resources>
+    <string name="app_name">LeafAI</string>
+
+    <!-- detect disease part-->
+    <string name="buttonSelectPhoto">Select Photo</string>
+    <string name="buttonTakePhoto">Start Camera</string>
+    <string name="buttonDiagnose">Detect</string>
+    <string name="defaultImage">Default image set now...</string>
+    <string name="descriptionImage">View for displaying image</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="sub_name">Citrus, genus of plants belonging to the rue family (Rutaceae), and yielding pulpy fruits covered with fairly thick skins. Economically important plants in this group include the lemon (C. ×limon), lime (C. ×aurantiifolia), sweet orange (C. ×sinensis), sour orange (C. ×aurantium), tangerine (C. reticulata), grapefruit (C. ×paradisi), citron (C. medica), and shaddock (C. maxima).</string>
+    <string name="showPrecautions">Precaution</string>
+    <string name="hi">Hi Nature Lover,</string>
+    <string name="give_your">Give your plant a healthy life.</string>
+    <string name="get_started">ஆராயுங்கள்</string>
+    <string name="ml">By using \nMachine Learning model</string>
+    <string name="open_gallery">OPEN GALLERY</string>
+    <string name="start_camera">START CAMERA</string>
+
+    <string name="message">Message</string>
+    <string name="resultTxt">Your Result</string>
+    <string name="detect_txt">1. First import or capture an image \n2. When is load into the ImageView, you are ready to detect the disease</string>
+    <string name="gray_leaf_spot">Corn (maize) Cercospora leaf spot Gray leaf spot</string>
+    <string name="gray_leaf_spot_cause">Gray leaf spot is caused by the fungus Cercospora zeae-maydis.\n\nEpidemics of gray leaf spot have been observed in New York State in the Southern Tier and the Hudson River Valley. New hot spots of the disease have been reported in the Mohawk Valley and the Leatherstocking Region. \n\nGray leaf spot is favored by wet humid weather as often found in valley microclimates. Additionally, it is favored in situations with reduced tillage and continuous corn.</string>
+    <string name="manage">Management Strategies</string>
+    <string name="mangeStat">Management strategies for gray leaf spot include tillage, crop rotation and planting resistant hybrids.  \n\nFungicides may be needed to prevent significant loss when plants are infected early and environmental conditions favor disease.</string>
+    <string name="sym">Symptoms</string>
+    <string name="symDesc">Symptoms of gray leaf spot are usually first noticed in the lower leaves.  \n\nInitially, lesions of gray leaf spot begin as a small dot with a yellow halo.  \n\nLesions will elongate over time running parallel to the veins becoming pale brown to gray and rectangular in shape with blunt ends. These lesions can be described as having the appearance of a “matchstick.”  \n\nLesions may eventually coalesce killing the leaves.  \n\nLeaves appear grayish in color due to the presence of fungal spores.</string>
+    <string name="images">Images</string>
+    <string name="common_rust">Common Rust</string>
+    <string name="common_rust_cause">Common rust is caused by the fungus Puccinia sorghi. Late occurring infections have limited impact on yield.  \n\nThe fungus overwinters on plants in southern states and airborne spores are wind-blown to northern states during the growing season.  \n\nDisease development is favored by cool, moist weather (60 – 70◦ F).</string>
+    <string name="common_rust_mangeStat">The use of resistant hybrids is the primary management strategy for the control of common rust.  \n\nTimely planting of corn early during the growing season may help to avoid high inoculum levels or environmental conditions that would promote disease development.</string>
+    <string name="common_rustsymDesc">Symptoms of common rust often appear after silking.  \n\nSmall, round to elongate brown pustules form on both leaf surfaces and other above ground parts of the plant.  \n\nAs the pustules mature they become brown to black.  \n\nIf disease is severe, the leaves may yellow and die early.</string>
+    <string name="corn_healthy">Corn Healthy</string>
+    <string name="corn_healthy_cause">There is nothing wrong in this leaf. This leaf is free from all diseases. No need to take any precautions. Keep your plant healthy like this.</string>
+    <string name="northernSpot">Northern Corn Leaf Blight</string>
+    <string name="northernSpot_cause">Northern corn leaf blight caused by the fungus Exerohilum turcicum is a common leaf blight found in New York.  \n\nIf lesions begin early (before silking), crop loss can result. Late infections may have less of an impact on yield.  \n\nNorthern corn leaf blight is favored by wet humid cool weather typically found later in the growing season.  \n\nSpores of the fungus that causes this disease can be transported by wind long distances from infected fields. Spread within and between fields locally also relies on wind blown spores.</string>
+    <string name="northernSpot_mangeStat">Northern corn leaf blight can be managed through the use of resistant hybrids.  Additionally, timely planting can be useful for avoiding conditions that favor the disease.</string>
+    <string name="northernSpot_symDesc">The tan lesions of northern corn leaf blight are slender and oblong tapering at the ends ranging in size between 1 to 6 inches.  \n\nLesions run parallel to the leaf margins beginning on the lower leaves and moving up the plant. They may coalesce and cover the enter leaf.  \n\nSpores are produced on the underside of the leaf below the lesions giving the appearance of a dusty green fuzz.</string>
+    <string name="choose">Choose component \nwhich interest you</string>
+    <string name="aboutCorn">About Corn</string>
+    <string name="help">How to Detect Disease</string>
+    <string name="aboutApp">About App</string>
+    <string name="aboutDev">About Developer</string>
+    <string name="detect_disease">Detect Disease</string>
+    <string name="disease_detector">Disease Detector</string>
+    <string name="corn1">Corn, <b>(Zea mays)</b>, also called <b>Indian corn</b> or <b>maize</b>, cereal plant of the grass family (Poaceae) and its edible grain. The domesticated crop originated in the Americas and is one of the most widely distributed of the world’s food crops.</string>
+    <string name="corn2">"Corn was first domesticated by native peoples in <b>Mexico</b> about <b>10,000 years</b> ago. Native Americans taught European colonists to grow the indigenous grains, and, since its introduction into Europe by <i>Christopher Columbus</i> and other explorers, corn has spread to all areas of the world suitable to its cultivation. It is grown from <b>58° N</b> latitude in <b>Canada</b> and <b>Russia</b> to <b>40° S</b> latitude in South America, with a corn crop maturing somewhere in the world nearly every month of the year. "</string>
+    <string name="corn3">Although it is a major food in many parts of the world, corn is inferior to other cereals in nutritional value. Its protein is of poor quality, and it is deficient in niacin. Diets in which it predominates often result in pellagra (niacin-deficiency disease). Its gluten (elastic protein) is of comparatively poor quality, and it is not used to produce leavened bread. It is widely used, however, in Latin American cuisine to make masa, a kind of dough used in such staple foods as tortillas and tamales.</string>
+    <string name="corn4">Many parts of the corn plant are used in industry. Cornstarch can be broken down into corn syrup, a common sweetener that is generally less expensive than sucrose; high-fructose corn syrup is used extensively in processed foods such as soft drinks and candies. Stalks are made into paper and wallboard; husks are used as filling material; cobs are used directly for fuel, to make charcoal, and in the preparation of industrial solvents. Corn grain is processed by wet milling, in which the grain is soaked in a dilute solution of sulfurous acid; by dry milling, in which the corn is exposed to a water spray or steam; and by fermentation, in which starches are changed to sugars and yeast is employed to convert the sugars into alcohol.</string>
+    <string name="about1">This app is all about detect disease from corn leaf. Now a days, many farmer or other people face a problem that their plants are affected by many diseases. But they are not aware what to do and where to do. So this app will guide them to detect what type of disease is affected in their plant.</string>
+    <string name="about2">Here user can detect the leaf diseases of <b>corn (maize)</b> . By using machine learning model this app will detect your plant leaf diseases in a quick way.</string>
+    <string name="userimage">userImage</string>
+    <string name="name">Name</string>
+    <string name="yourName">Golap Gunjan Barman</string>
+    <string name="github">GitHub</string>
+    <string name="githubLink"><a href="https://github.com/barmangolap15">barmangolap15</a></string>
+    <string name="web">Website</string>
+    <string name="website"><a href="https://www.gbandroidblogs.com/">GBAndroidBlogs</a></string>
+    <string name="banner">banner</string>
+    <string name="demo_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
+    <string name="register_text">Create an account \nand explore with <b>LeafAI</b></string>
+    <string name="displayName">Enter full name</string>
+    <string name="prompt_email">Enter email id</string>
+    <string name="prompt_password">Enter password</string>
+    <string name="login_here"><u>Login here</u></string>
+    <string name="register_here"><u>Register here</u></string>
+    <string name="weather_temp_default">N/A</string>
+    <string name="weather_icon_default">N/A</string>
+
+    <string name="forgot_password">Enter the email address associated with your account:</string>
+    <string name="tryanother"><u>Try a different email</u></string>
+    <string name="weather_desc_default">Unable to fetch weather data</string>
+
+    <string name="open_weather_maps_app_id">98ed13acba37b8f64a391fd3a3748865</string>
+
+    <string name="cloudy_weather">&#xf013;</string>
+    <string name="thunder_weather">&#xf01e;</string>
+    <string name="drizzle_weather">&#xf01c;</string>
+    <string name="rainy_weather">&#xf01a;</string>
+    <string name="snowy_weather">&#xf01b;</string>
+    <string name="clear_weather">&#xf00d;</string>
+    <string name="foggy_weather">&#xf014;</string>
+    <string name="available_crops"><b>Available crops:</b> apple, blueberry, cherry, corn, grape, orange, peach, pepper, potato, tomato, raspberry, and strawberry</string>
+    <string name="apple_scab"><b>Choose scab-resistant</b> varieties of apple or crabapple trees.\n<b>Rake up</b> and discard any fallen leaves or fruit on a regular basis, and never leave fallen leaves or fruit on the ground over winter. Apple scab fungus overwinters on fallen leaves and fruit.\n<b>Prune</b> your apple and crabapple trees to keep their crowns open so light and air can move through. Dry leaves and fruit help to prevent initial infection.\n<b>Plant</b> your apple and crabapple trees correctly, in full sun and with enough space around each tree, according to their mature size. Shade keeps water from evaporating quickly, and crowded trees are more susceptible to the disease.\n<b>Irrigate</b> your trees in the early morning hours, and don’t use overhead sprays that will wet leaves and fruit. Dry leaves won’t host the fungus.</string>
+    <string name="apple_black_rot">\nPrune out dead or diseased branches.\nPick all dried and shriveled fruits remaining on the trees.\nRemove infected plant material from the area.\nAll infected plant parts should be burned, buried or sent to a municipal composting site.\nBe sure to remove the stumps of any apple trees you cut down. Dead stumps can be a source of spores.</string>
+    <string name="cedar_apple_rust">Choose resistant cultivars when available.\nRake up and dispose of fallen leaves and other debris from under trees.\nRemove galls from infected junipers. In some cases, juniper plants should be removed entirely.\nApply preventative, disease-fighting fungicides labeled for use on apples weekly, starting with bud break, to protect trees from spores being released by the juniper host. This occurs only once per year, so additional applications after this springtime spread are not necessary.\nOn juniper, rust can be controlled by spraying plants with a copper solution (0.5 to 2.0 oz/ gallon of water) at least four times between late August and late October.</string>
+    <string name="cherry_powdery_mildew">Start looking for the first colonies about 1 week after the first irrigation.\nRemove and destroy sucker shoots.\nKeep irrigation water off developing fruit and leaves by using irrigation that does not wet the leaves. Also, keep irrigation sets as short as possible.\nFollow cultural practices that promote good air circulation, such as pruning, and moderate shoot growth through judicious nitrogen management.</string>
+    <string name="corn_grey_spot">The most proficient and economical method to reduce yield losses from corn grey leaf spot is by introducing resistant plant varieties\nIn places where leaf spot occur, these crops can ultimately grow and still be resistant to the disease. Although the disease is not completely eliminated and resistant varieties show disease symptoms, at the end of the growing season, the disease is not as effective in reducing crop yield.\nThe amount of initial inoculum will be reduced when a crop other than corn is planted for ≥2 years in that given area; meanwhile proper tillage methods are carried out. Clean plowing and 1-year crop rotation in the absence of corn allows for greater reductions of the disease as well. Note that conventional tilling can reduce disease but can lead to greater soil erosion</string>
+    <string name="corn_leaf_blight">Control of this disease is often focused on management and prevention. First, choose corn varieties or hybrids that are resistant or at least have moderate resistance to northern corn leaf blight. When you grow corn, make sure it does not stay wet for long periods of time. The fungus that causes this infection needs between six and 18 hours of leaf wetness to develop. Plant corn with enough space for airflow and water in the morning so leaves can dry throughout the day.</string>
+    <string name="grape_black_rot">Infected prunings and mummified berries should be removed, burned, and/or buried in the soil before new growth begins in the spring. In vineyards with susceptible varieties or where black rot was a problem the previous year, early season fungicide sprays should be timed to prevent the earliest infections. Should infections become numerous, protecting against fruit rot is very difficult later in the growing season. Planting resistant varieties is strongly suggested.</string>
+    <string name="grape_esca_black_measles">Presently, there are no effective management strategies for measles. Wine grape growers with small vineyards will often have field crews remove infected fruit prior to harvest. Raisins affected by measles will be discarded during harvest or at the packing house, while table grape growers will leave affected fruit on the vine. Current research is focused on protecting pruning wounds from fungal infections to minimize suspect fungi from colonizing fresh wounds.</string>
+    <string name="grape_isariopsis_leaf_spot">Fungicides sprayed for other diseases in the season may help to reduce this disease.</string>
+    <string name="peach_bacterial_spot">The most vulnerable cultivars are: ‘Autumnglo’ ‘Autumn Lady’ ‘Blake’ ‘Elberta’ ‘Halehaven’ ‘July Elberta’</string>
+    <string name="potato_early_blight">Treatment of early blight includes prevention by planting potato varieties that are resistant to the disease; late maturing are more resistant than early maturing varieties.\nAvoid overhead irrigation and allow for sufficient aeration between plants to allow the foliage to dry as quickly as possible. Practice a 2-year crop rotation. That is, do not replant potatoes or other crops in this family for 2 years after a potato crop has been harvested.</string>
+    <string name="potato_late_blight">Choose the right variety: Though no tomato varieties are completely immune to late blight, plant breeders are now developing varieties that are resistant to infection by the late blight fungus. So, when its time to decide which varieties to plant, keep an eye out for these.\nPrevent overwintering: Fortunately, the fungus that causes late blight needs living tissue to survive over the winter, so it can not overwinter on tomato cages or supports.\nGive plants space: If possible, avoid planting tomatoes and potatoes where you had them last year. \nAvoid watering from above: Using soaker hoses or drip irrigation keep foliage dry, which makes it more difficult for late blight — and other diseases — to spread. </string>
+    <string name="strawberry_leaf_scorch">While leaf scorch on strawberry plants can be frustrating, there are some strategies which home gardeners may employ to help prevent its spread in the garden. The primary means of strawberry leaf scorch control should always be prevention.</string>
+    <string name="tomato_bacterial_spot">Using pathogen-free seed and disease-free transplants, when possible, is the best way to avoid bacterial spot on tomato. Avoiding sprinkler irrigation and cull piles near greenhouse or field operations, and rotating with a nonhost crop also helps control the disease.</string>
+    <string name="tomato_early_blight">Practice crop rotation by planting tomatoes in a section of the garden that has not been used to grow tomatoes or any other member of the Solanaceae family, such as eggplant, potatoes or peppers, in the last two years.\nRead seed packages or plant labels carefully to select a tomato variety that is resistant to blight.\nStake or cage tomato plants so that foliage grows vertically, off the ground.\nMulch well around plants.</string>
+    <string name="tomato_late_blight">Tomato varieties resistant to certain races of the late blight fungus are grown where the disease occurs regularly.\nRemove any nearby volunteer tomato and potato plants and nightshades.\nCheck transplants to ensure they are free of late blight before planting.\nAvoid sprinkler irrigation, if possible, because it favors the development of late blight.</string>
+    <string name="tomato_leaf_mold">The pathogen P. fulfa can survive on infected plant debris or in the soil, although the initial source of the disease is often infected seed. The disease is spread by rain and wind, on tools and clothing, and via insect activity.\nHigh relative humidity (greater that 85%) combined with high temperatures encourages the spread of the disease. With that in mind, if growing tomatoes in a greenhouse, maintain night temps higher than outside temperatures.</string>
+    <string name="tomato_spetoria_leaf_spot">Removing infected leaves. Remove infected leaves immediately, and be sure to wash your hands and pruners thoroughly before working with uninfected plants.\nConsider organic fungicide options. Fungicides containing either copper or potassium bicarbonate will help prevent the spreading of the disease. Begin spraying as soon as the first symptoms appear and follow the label directions for continued management.</string>
+    <string name="tomato_target_spot">Do not plant new crops next to older ones that have the disease.\nPlant as far as possible from papaya, especially if leaves have small angular spots (Photo 5).\nCheck all seedlings in the nursery, and throw away any with leaf spots.Remove a few branches from the lower part of the plants to allow better airflow at the base\nRemove and burn the lower leaves as soon as the disease is seen, especially after the lower fruit trusses have been picked.</string>
+    <string name="tomato_yellow_leaf_curl">Rapid and precise tests for Tomato yellow leaf curl virus are available at UC Davis and CDFA. These tests can be carried out in less than 24 hours. Anyone finding tomatoes with TYLC-like symptoms can contact their county farm advisor, Robert L. Gilbertson at UC Davis, or Tongyan Tian at CDFA.</string>
+    <string name="tomato_mosaic_virus">Destroy any seedlings that appear stunted or distorted and then decontaminate tools and hands.\nKeep the area around the tomatoes weeded and free of plant detritus to minimize areas the disease can harbor. Control insects as well to lessen the chances of contamination.</string>
+    <string name="tomato_spider_mites">If your tomato plants are thirsty, spider mites can move in. Practice a regular watering routine to keep the soil moist, but not waterlogged. They are often found on dusty plants. If possible, water the plants from above to chase away any dust and insects that may have gathered.</string>
+    <string name="grey_common_rust">Management strategies for gray leaf spot include tillage, crop rotation and planting resistant hybrids.\nFungicides may be needed to prevent significant loss when plants are infected early and environmental conditions favor disease.</string>
+    <string name="apple_healthy">You are going good!!</string>
+    <string name="scales">1. Scales: These remain covered inside a hard coating which looks like a waxy scale and infests lower surface of leaves and veins of branches.</string>
+    <string name="thrip">2. Thrips: These are minute sucking insects that mainly attack tender leaves, twigs and flower buds, making the affected plants weak with burnt appearance.</string>
+    <string name="aphids">3. Aphids: These brownish or green insects suck sap from tender shoots, leaves and flower buds. The affected plant becomes weak and retards in growth.</string>
+    <string name="mealybugs">4. Mealybugs: These are small fleshy insects which remain covered in white, wooly and waxy secretions. Generally, older plants are affected.</string>
+    <string name="whitefiles">5. Whiteflies: These are tiny insects, white in color and are very active in damp and dark conditions.</string>
+    <string name="spider_mites">6. Spider-Mites: This is a minute dot sized dangerous, shoot sucking pest, red in color, almost invisible to the naked eyes, resembling the spider but not an actual spider.</string>
+    <string name="caterpillr">7. Caterpillars: Various caterpillars feed on foliage, they damage the leaves by feeding continuously.</string>
+    <string name="leaf_bettle">8. Leaf Beetles and Weevils: These leaf infesting flying insects are considered as serious pests on flowering plants like Roses.</string>
+    <string name="cut_worms">9. Cut worms: This bug remains in the soil and attacks the plant at ground level.</string>
+    <string name="leaf_miner">10. Leaf-miners: The larvae of theses insects mine into leaves between tissue layers, leaving excreta on leaf surface and creating typical white patterns on leaves.</string>
+    <string name="reset">Reset</string>
+
+    <string name="desc_about_app">Weather forecast | ☀️ OpenWheatherMap</string>
+    <string name="version">Version</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="progress">Loading..</string>
+    <string name="msg_failed">Something went wrong...Please try later!</string>
+    <string name="msg_gps">Please enable GPS for current location access</string>
+    <string name="msg_internet">Please connect to Internet</string>
+    <string name="msg_location_services">Allow the application access to location permission</string>
+
+    <string name="desc_app_logo">App Logo</string>
+    <string name="msg_splash_bottom_tag">Made with ❤️ in India | Open Source Project </string>
+    <string name="action_search">Search Weather by City Name</string>
+    <string name="action_about">About</string>
+    <string name="search_title"> 🔍 Enter City Name </string>
+
+    <string name="desc_weather">Weather condition</string>
+
+    <string name="temp_lable">Temperature:</string>
+    <string name="temp_unit">\u00B0C</string>
+    <string name="wind_lable">Wind:</string>
+    <string name="wind_unit">m/s</string>
+    <string name="pressure_lable">Pressure:</string>
+    <string name="pressure_unit">hPa</string>
+    <string name="humidity_lable">humidity:</string>
+    <string name="humidity_unit">%</string>
+
+    <string name="weather_home">Weather home</string>
+    <string name="your_location">Use your Location</string>
+    <string name="more_text">TAP FOR MORE</string>
+    <string name="gps_msg">This app requires GPS to work properly, do you want to enable it?</string>
+    <string name="yes">YES</string>
+    <string name="gps">Enable GPS</string>
+    <string name="temp">Temperature unit</string>
+    <string name="temp_key">temp_unit_key</string>
+    <string name="default_temp">Celsius</string>
+    <string name="your_plant_doctor">Your Plant Doctor</string>
+    <string name="selectLang">Change Language</string>
+    <string name="skip">Skip</string>
+
+    <string-array name="temp_units">
+        <item>Celsius</item>
+        <item>Fahrenheit</item>
+    </string-array>
+
+    <string-array name="temp_values">
+        <item>Celsius</item>
+        <item>Fahrenheit</item>
+    </string-array>
+
+    <string name="health_check">Health Check</string>
+    <string name="health_check_tag">Tale a picture of your crop to detect diseases and receive treatment advice</string>
+    <string name="community">Community</string>
+    <string name="community_tag">Ask a question about your crop to receive help from the community</string>
+    <string name="cultivation_tips">Cultivation Tips</string>
+    <string name="cultivation_tips_tag">Receive framing advice about how to improve your yield</string>
+    <string name="upload_image">Upload image</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="show_password">Show Password</string>
+    <string name="welcome_back_nyou_ve_been_missed">Welcome back.\nYou\'ve been missed!</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="prompt_confirm_password">Confirm Password</string>
+    <string name="banana_cordona">To reduce disease levels, infected leaves should be removed. Monitor plants for symptoms and when required apply a registered fungicide. Luna® Experience is registered for control of CLS.  Scala® is registered for the control of CLS (C. musae).</string>
+    <string name="banana_pestalotiopsis">Wind and water movement easily disperses spores of Pestalotiopsis palmarum so sanitation and irrigation management can be proven to be critical in preventing the movement of the disease. Wounds and damage to the plant offer easy access for the fungus so the limitation of human and insect activity can be very beneficial. Limiting the length of time that the leaves are wet when exposed to high humidity levels also reduces the risk of inoculation. So eliminating overhead irrigation can prevent infection on leaves when there is favorable humid weather. Nutrient management is also very important in controlling Pestalotopsis palmarum. Nutrient deficiencies can cause chlorosis and necrosis of leaf tissue which then in turn creates a wound necessary for disease inoculation.</string>
+    <string name="banana_sigatoka">Planting should be taken up in well drained soils and maintain proper drainage thereafter Grow resistant varieties Planting at recommended spacing Remove suckers periodically to avoid overcrowding and maintain only one or two healthy suckers Periodically remove and burn affected leaves to avoid further spreading Provide adequate potassium fertilizers Keep the fields free from weeds</string>
+    <string name="chili_leaf_curl">There are no treatments for viruses. Infected pepper plants cannot be cured; therefore, the focus should be on prevention. If just a few plants show symptoms remove them from the field.  Try to avoid frequent use of organophosphate, carbamates, or pyrethroids insecticides; they will eliminate natural whitefly enemies and pollinators.</string>
+    <string name="chili_leaf_spot">"Spray twice at 10-15 days interval with Mancozeb 0.25% or Chlorothalonil (Kavach) 0.1%. "</string>
+    <string name="chili_whitefy">Plant products namely Neem Seed Kernel Extract 5% (50 kg) and Neem oil at 5 ml/ lit. or fish oil rosin soap 2 kg @ 1 kg in 40 lit of water may be sprayed individually or in combination with the recommended dose of insecticide (at 2 ml/ lit. of water)  During early stages, spray methyl demeton 25 EC @ 500 ml(500 lit. of spray fluid/ha). During mid and late stage, spray ethion 50 EC @ 1.0 lit/ha, triazophos 25 EC @ 2.0 lit/ha and acephate 75 SP @ 1.30 kg/ha.</string>
+    <string name="chili_yellow">Encourage the activity of predatory mite: Amblyseius ovalis Apply phorate 10 % G @10 kg/ha or spray any one of the following insecticide</string>
+    <string name="chili_healthy">No problem, your plant is fine!</string>
+    <string name="citrus_c">Integrated management practices can reduce citrus canker incidence by (1) using canker disease-free nursery plants, (2) pruning and burning infected twigs, (3) spraying copper-based bactericides, and (4) developing canker-resistant varieties</string>
+    <string name="citrus_healthy">No problem found!</string>
+    <string name="citrus_bs">Appropriate Treatment—Fungicides, such as copper, strobilurins, or other labeled fungicides, should be applied to the trees at intervals as recommended by UF/IFAS to help prevent the damage and spread of citrus black spot disease.</string>
+    <string name="citrus_hun">National and international quarantines are critical to minimize the potential of long-distance dissemination. Integrated pest management strategies are needed such as:  early detection, chemical and biological control of the vectors, potential chemical control of the Liberibacters using chemical and antibiotic treatments of trees, isolation and protection of budwood sources and plant propagation in screened-in, insect-proof locations, and development of resistant cultivars.</string>
+    <string name="citrus_tv">Management of the tristeza complex depends largely on preventive measures, such as using tolerant rootstocks and tristeza-free propagation material. However, because of the insect vector, disease spread cannot be prevented completely. Symptoms of tristeza become more apparent during the hot summer months when increased water needs cannot be met by the declining root system.</string>
+    <string name="cotton_cv">Chemical control in the form of insecticides can be used to control the whitefly population, such as imadacloprid or dinotefuran.</string>
+    <string name="cotton_fw">Management of Fusarium wilt is difficult and most successfully achieved through the use of resistant cultivars and pathogen-free cotton seed. Once inoculum has been introduced into the field, strategies such as soil solarization and fumigation are applied to manage inoculum levels.</string>
+    <string name="cotton_bb">Delint the cotton seeds with concentrated sulphuric acid at 100ml/kg of seed. Treat the acid delinted seeds with Carboxin or Oxycarboxin at 2 g/kg or soak the seeds in 1000 ppm Streptomycin sulphate overnight. Remove and destroy the infected plant debris. Rogue out the volunteer cotton plants and weed hosts.</string>
+    <string name="mango_w">"Spray monocrotophos 36WSC 1.5 ml. "</string>
+    <string name="mango_ns">Susceptible mango varieties should be protected with fungicide in commercial production and the timing of the applications are critical to successful control; appropriate fungicide should be applied during flowering and fruit development</string>
+    <string name="mango_sb">Remove affected grafts or seedlings and spray them with 0.04% dimethoate to effectively control the insect. Insecticides such as penthoate can also be used to control mango shoot borer.</string>
+    <string name="mango_ss">Conserve natural enemies such as ladybird beetles, parasitic wasps, or lacewings. Avoid spraying insecticides when there are enough enemies to control the scales. •\t Spray with light mineral oils but ensure right concentration to avoid damage to the trees. •\t Use planting or propagation material that is free of scales. •\t Ensure adequate plant spacing and pruning.</string>
+    <string name="mango_bw">Always start with blasting whiteflies (as with aphids and many other insect pests) with your watering hose or a spray bottle. This will cause them to scatter and will dislodge nymphs and eggs to some extent.</string>
+    <string name="mango_rws">Scale can be difficult to detect at low densities, however the presence of ants and sooty mould are good indicators they are present.   For best control, apply insecticides when all of the crawlers have hatched, ensuring good application coverage.   Pink wax scale has a number of natural predators including parasitic wasps, ladybird beetles and lace wings. Movento is soft on many beneficial insects, including parasitic wasps, pirate bugs, hoverflies and lacewings. It is registered for the control of pink wax scale in citrus and mangos. Confidor 200 is registered for the control of soft scales in ornamental plants.</string>
+    <string name="mango_ws">Control measures taken against the white mango scale include use of chemical insecticides, quarantine, cultural practices, biological control using parasitoids</string>
+    <string name="papaya_m">"Good field sanitation such as removal and destruction of affected plant reduce the spread of the disease. Also, losses can be minimised controlling the population of aphid. Application of Carbofuran (1 kg a.i./ha) at the time of sowing seeds followed by 2-3 foliar sprays of Phosphamidon (0.05%) at an interval of 10 days starting from 15-20 days after sowing effectively checks the population of aphids. "</string>
+    <string name="papaya_anthra">" The affected fruits should be remove and destroyed. The fruits should be harvested as soon as they mature. Spaying with Copper Oxychloride (3 g/litre of water) or Carbendazim (1 g/litre of water) or Thiophanate Methyl (1 g/litre of water) at 15 days interval effectively controls the disease. Fruits for exports should be subjected to hot water treatment or a fungicidal wax treatment. "</string>
+    <string name="papaya_rs">Early detection of infected plants and prompt removal can check the spread of the disease. Aphids can be controlled by application of Carbofuran (1 kg a.i./ha) in the nursery bed at the time of sowing seeds followed by 2-3 foliar sprays of Phosphamidon (0.05%) at an interval of 10 days starting from 15-20 days after sowing.</string>
+    <string name="papaya_pm">": As soon as the disease symptoms are observed dusting Sulphur (30 g/10 litres of water) or spraying Calixin 75 EC (5 ml/10 litres of water) at 15 days interval helps to control the disease. "</string>
+    <string name="rice_bs">Use fungicides (e.g., iprodione, propiconazole, azoxystrobin, trifloxystrobin, and carbendazim) as seed treatments. Treat seeds with hot water (53−54°C) for 10−12 minutes before planting, to control primary infection at the seedling stage.</string>
+    <string name="rice_b">Rice blast can be controlled by a combination of preventive measures and foliar fungicides applied when rice is in the late boot stage and again when it is 80 to 90 percent headed.</string>
+    <string name="riec_blb">Use balanced amounts of plant nutrients, especially nitrogen. Ensure good drainage of fields (in conventionally flooded crops) and nurseries. Keep fields clean. ... Allow fallow fields to dry in order to suppress disease agents in the soil and plant residues.</string>
+    <string name="tea_ws">Plant in well draining, acidic soils; remove diseased twigs by cutting several inches below cankered areas and disinfecting tools between cuts; apply appropriate protective fungicides during periods of wet weather or natural leaf drop to protect leaf scars from infection</string>
+    <string name="tea_rls">Remove any visibly infected bushes and any adjacent plants which are showing signs of yellowing; remove any stumps or trees within infested area; all living and dead roots which are about pencil thickness or more should be removed from the site by digging using a fork; all material collected should be destroyed by burning; bushes surrounding the infested area should be treated with an appropriate fungicide applied as a soil drench; cleared site should be planted with grass for a period of two years before tea is replanted</string>
+    <string name="tea_bb">Disease is difficult to manage once plants become infected so control methods should focus on protecting plants; always plant tea in well-draining soils which are not as favorable for the survival of the pathogen; application of appropriate fungicides can help to protect plants from infection</string>
+    <string name="tea_bes">Plant in well draining, acidic soils; remove diseased twigs by cutting several inches below cankered areas and disinfecting tools between cuts; apply appropriate protective fungicides during periods of wet weather or natural leaf drop to protect leaf scars from infection</string>
+    <string name="tea_anthr">Remove all infected flowers from plants; remove all crop debris from around plants; soil drenches with appropriate fungicides can help to reduce the intensity of the disease</string>
+    <string name="tea_algal">Avoid overhead irrigation which can spread the disease; provide adequate space between plants to maximize air circulation around foliage; avoid wounding plants; prune out diseases parts of plants by cutting 6 inches below any visible symptoms; application of appropriate protective fungicides should be made in Spring when old leaves drop from plants</string>
+    <string name="write_query">Enter your message</string>
+    <string name="select_your_language">Select your language</string>
+    <string name="user_profile">User Profile</string>
+</resources>
