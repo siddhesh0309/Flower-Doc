@@ -1,0 +1,117 @@
+import json, os, time
+from typing import List, Optional, Dict, Any
+import httpx
+from secrets import token_bytes
+
+from .crypto import aes_encrypt_base64, aes_decrypt_base64, rsa_encrypt_base64
+from .secrets import read_secret
+
+RBI_LRS_URL = os.getenv(
+    "RBI_LRS_URL",
+    "https://gaman.rbi.org.in/CIMS_Gateway_API/GATEWAY/SERVICES/api_lrsaggregatedRSAencry",
+)
+DEFAULT_CHANNEL_KEY = os.getenv("CHANNEL_KEY", "key10")
+DEFAULT_DATATYPE = "application/json"
+HTTP_TIMEOUT = float(os.getenv("HTTP_TIMEOUT", "30"))
+HTTP_RETRIES = int(os.getenv("HTTP_RETRIES", "2"))
+
+SECRET_NAMES = {
+    "CLIENT_ID": os.getenv("SM_CLIENT_ID", "RBI_CLIENT_ID"),
+    "CLIENT_SECRET": os.getenv("SM_CLIENT_SECRET", "RBI_CLIENT_SECRET"),
+    "RBI_RSA_CERT_PEM": os.getenv("SM_RBI_RSA_CERT_PEM", "RBI_RSA_CERT_PEM"),
+    "CHANNEL_KEY": os.getenv("SM_CHANNEL_KEY", ""),  # optional; if empty we use env/default
+}
+
+def _build_body_json(pans: List[str]) -> bytes:
+    body = [
+        {
+            "structureRefKey": {"code": "LRSDATA", "version": 1, "agencyID": "RBI"},
+            "obs": [{"pan": pans}],
+        }
+    ]
+    return json.dumps(body, separators=(",", ":")).encode("utf-8")
+
+def call_rbi_lrs(
+    pans: List[str],
+    unique_id: str,
+    project_id: Optional[str] = None,
+    channelKey_override: Optional[str] = None
+) -> Dict[str, Any]:
+    # 1) secrets
+    client_id = read_secret(project_id, SECRET_NAMES["CLIENT_ID"]).strip()
+    client_secret = read_secret(project_id, SECRET_NAMES["CLIENT_SECRET"]).strip()
+    rbi_cert_pem = read_secret(project_id, SECRET_NAMES["RBI_RSA_CERT_PEM"]).encode("utf-8")
+    channel_key = (
+        channelKey_override
+        or (read_secret(project_id, SECRET_NAMES["CHANNEL_KEY"]).strip()
+            if SECRET_NAMES["CHANNEL_KEY"] else DEFAULT_CHANNEL_KEY)
+    )
+
+    # 2) ephemeral AES key
+    aes_key = token_bytes(32)
+
+    # 3) encrypt login params & body with AES
+    login_blob = f"{client_id}|{client_secret}".encode("utf-8")
+    login_params_enc = aes_encrypt_base64(login_blob, aes_key)
+    lrs_body_enc = aes_encrypt_base64(_build_body_json(pans), aes_key)
+
+    # 4) RSA encrypt AES key with RBI public cert
+    key_data_b64 = rsa_encrypt_base64(aes_key, rbi_cert_pem)
+
+    # 5) payload
+    payload = {
+        "header": {
+            "authinfo": {
+                "LoginParams": ["CLIENT_AUTH_INFO", login_params_enc],
+                "UserType": "SYSTEM",
+                "AuthenticationType": "API_AUTH",
+                "Key_data": key_data_b64,
+            }
+        },
+        "body": {"LRS_body": lrs_body_enc, "uniqueId": unique_id},
+    }
+
+    headers = {
+        "Content-Type": "application/json",
+        "datatype": DEFAULT_DATATYPE,
+        "channelkey": channel_key,
+        "Client-Id": client_id,  # keep plain per many gateways; encrypted part is inside JSON
+    }
+
+    # 6) call RBI
+    last_exc = None
+    for attempt in range(HTTP_RETRIES + 1):
+        try:
+            with httpx.Client(timeout=HTTP_TIMEOUT) as cli:
+                resp = cli.post(RBI_LRS_URL, headers=headers, json=payload)
+            try:
+                rjson = resp.json()
+            except Exception:
+                rjson = None
+
+            decrypted = None
+            # RBI manual shows response encrypted field as "lrsOutput" inside body and
+            # states to use the SAME AES key you used for request.
+            try:
+                enc = (
+                    rjson.get("body", {}).get("lrsOutput")
+                    or rjson.get("body", {}).get("LRSOutput")
+                )
+                if enc:
+                    pt = aes_decrypt_base64(enc, aes_key)
+                    decrypted = json.loads(pt.decode("utf-8"))
+            except Exception:
+                decrypted = None
+
+            return {
+                "status_code": resp.status_code,
+                "rbi_message": None if resp.status_code == 200 else f"RBI returned HTTP {resp.status_code}",
+                "rbi_raw": rjson,
+                "decrypted": decrypted,
+            }
+        except Exception as e:
+            last_exc = e
+            if attempt < HTTP_RETRIES:
+                time.sleep(1.0 * (attempt + 1))
+            else:
+                raise RuntimeError(f"Failed to call RBI API: {last_exc}") from last_exc
