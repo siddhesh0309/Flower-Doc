@@ -1,0 +1,109 @@
+from pathlib import Path
+import pandas as pd
+
+# ========= CONFIG =========
+INPUT_FOLDER = r"C:\path\to\pdfs"           # folder with PDFs
+OUTPUT_XLSX  = r"C:\path\to\output_multi_email.xlsx"   # output file (multi-email)
+EMAIL_XLSX   = r"C:\path\to\email.xlsx"     # Excel that has: pan, pan_name, email1..email10 (names can vary)
+# ==========================
+
+quarter_to_period = {
+    "Q1": "April–June",
+    "Q2": "July–September",
+    "Q3": "October–December",
+    "Q4": "January–March",
+}
+
+def normalize_pan(x):
+    if pd.isna(x):
+        return None
+    return str(x).strip().upper()
+
+# ---- Step 1: build base rows from filenames
+rows = []
+folder = Path(INPUT_FOLDER)
+
+for p in folder.glob("*.pdf"):
+    parts = p.stem.split("_")  # filename without extension, split by "_"
+    if len(parts) < 4:
+        continue  # skip invalid files
+
+    pan = normalize_pan(parts[0])   # first part is PAN
+    quarter = parts[2].upper()      # third part is Quarter (Q1/Q2/Q3/Q4)
+
+    rows.append({
+        "FILENAME": p.name,
+        "PASSCODE": pan,
+        "QUARTER": quarter,
+        "PERIOD": quarter_to_period.get(quarter, ""),
+        "ZONE": "WI"
+    })
+
+base_df = pd.DataFrame(rows, columns=["FILENAME", "PASSCODE", "QUARTER", "PERIOD", "ZONE"])
+
+# If folder had nothing valid, still proceed safely
+if base_df.empty:
+    base_df = pd.DataFrame(columns=["FILENAME", "PASSCODE", "QUARTER", "PERIOD", "ZONE"])
+
+# ---- Step 2: read email.xlsx
+ref_df = pd.read_excel(EMAIL_XLSX, dtype=str)
+ref_df.columns = [c.lower() for c in ref_df.columns]
+
+# sanity: must have pan and pan_name
+required = {"pan", "pan_name"}
+missing = required - set(ref_df.columns)
+if missing:
+    raise ValueError(f"email.xlsx missing required columns: {missing}")
+
+# identify all email columns (case-insensitive startswith 'email')
+email_cols = [c for c in ref_df.columns if c.startswith("email")]
+if not email_cols:
+    # If no email columns, create an empty email column so the pipeline still runs
+    ref_df["email"] = ""
+    email_cols = ["email"]
+
+# Normalize fields
+ref_df["pan"] = ref_df["pan"].map(normalize_pan)
+ref_df["pan_name"] = ref_df["pan_name"].astype(str).str.strip()
+
+# ---- Step 3: wide → long (one row per PAN per email)
+long_df = ref_df.melt(
+    id_vars=["pan", "pan_name"],
+    value_vars=email_cols,
+    var_name="email_col",
+    value_name="email"
+)
+
+# clean email values
+long_df["email"] = long_df["email"].astype(str).str.strip()
+# keep rows where PAN is present
+long_df = long_df.dropna(subset=["pan"])
+# remove empty/blank emails (optional—comment next line if you prefer to keep blanks as rows)
+long_df = long_df[long_df["email"] != ""]
+
+# de-duplicate same email repeated across columns for same PAN
+long_df = long_df.drop_duplicates(subset=["pan", "email"], keep="first")
+
+# ---- Step 4: merge with base (this creates multiple rows when multiple emails exist)
+out = base_df.merge(
+    long_df[["pan", "pan_name", "email"]],
+    how="left",                 # keeps all base rows; duplicates by number of emails per PAN
+    left_on="PASSCODE",
+    right_on="pan"
+).drop(columns=["pan"])
+
+# ---- Step 5: rename columns for final output & order
+out = out.rename(columns={
+    "pan_name": "CUSTOMER NAME",
+    "email": "EMAIL_ADD1"
+})
+
+# Ensure column order
+out = out[["FILENAME", "PASSCODE", "QUARTER", "PERIOD", "ZONE", "CUSTOMER NAME", "EMAIL_ADD1"]]
+
+# fill blanks
+out = out.fillna("")
+
+# ---- Step 6: save
+out.to_excel(OUTPUT_XLSX, index=False)
+print(f"Created {OUTPUT_XLSX} with {len(out)} rows.")
