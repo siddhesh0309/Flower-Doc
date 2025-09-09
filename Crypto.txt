@@ -1,0 +1,30 @@
+import base64
+from secrets import token_bytes
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+from cryptography.hazmat.primitives import padding as sym_padding
+from cryptography.hazmat.primitives.asymmetric import padding
+from cryptography.hazmat.primitives import serialization
+from cryptography.hazmat.backends import default_backend
+
+def aes_encrypt_base64(plaintext: bytes, key32: bytes) -> str:
+    if len(key32) != 32:
+        raise ValueError("AES key must be 32 bytes (AES-256).")
+    iv = token_bytes(16)
+    padder = sym_padding.PKCS7(128).padder()
+    padded = padder.update(plaintext) + padder.finalize()
+    cipher = Cipher(algorithms.AES(key32), modes.CBC(iv), backend=default_backend())
+    ct = cipher.encryptor().update(padded) + cipher.encryptor().finalize()
+    return base64.b64encode(iv + ct).decode("utf-8")
+
+def aes_decrypt_base64(b64_text: str, key32: bytes) -> bytes:
+    blob = base64.b64decode(b64_text)
+    iv, ct = blob[:16], blob[16:]
+    cipher = Cipher(algorithms.AES(key32), modes.CBC(iv), backend=default_backend())
+    padded = cipher.decryptor().update(ct) + cipher.decryptor().finalize()
+    unpad = sym_padding.PKCS7(128).unpadder()
+    return unpad.update(padded) + unpad.finalize()
+
+def rsa_encrypt_base64(data: bytes, public_pem: bytes) -> str:
+    pub = serialization.load_pem_public_key(public_pem, backend=default_backend())
+    enc = pub.encrypt(data, padding.PKCS1v15())
+    return base64.b64encode(enc).decode("utf-8")
