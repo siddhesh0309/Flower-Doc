@@ -1,0 +1,14 @@
+from typing import List, Optional, Any, Dict
+from pydantic import BaseModel, Field, constr
+
+class LrsQueryRequest(BaseModel):
+    pans: List[constr(strip_whitespace=True, min_length=10, max_length=10)]
+    uniqueId: constr(strip_whitespace=True, min_length=2, max_length=16) = "ABC12345"
+    channelKey_override: Optional[str] = Field(None, description="Override channel key header if needed")
+    project_id: Optional[str] = Field(None, description="GCP project if not set in env")
+
+class LrsQueryResult(BaseModel):
+    status_code: int
+    rbi_message: Optional[str] = None
+    rbi_raw: Optional[Dict[str, Any]] = None
+    decrypted: Optional[Dict[str, Any]] = None
