@@ -1,0 +1,18 @@
+from fastapi import APIRouter, HTTPException
+from app.models.pan_models import LrsQueryRequest, LrsQueryResult
+from app.services import call_rbi_lrs
+
+router = APIRouter()
+
+@router.post("/query", response_model=LrsQueryResult)
+def query_lrs(req: LrsQueryRequest):
+    try:
+        result = call_rbi_lrs(
+            pans=req.pans,
+            unique_id=req.uniqueId,
+            project_id=req.project_id,
+            channelKey_override=req.channelKey_override
+        )
+        return LrsQueryResult(**result)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
