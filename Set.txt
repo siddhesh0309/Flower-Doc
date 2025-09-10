@@ -1,107 +1,32 @@
-from pathlib import Path
-import pandas as pd
+import os
+import shutil
+from tqdm import tqdm
 
-# ========= CONFIG =========
-INPUT_FOLDER = r"C:\path\to\pdfs"                     # folder with PDFs
-OUTPUT_XLSX  = r"C:\path\to\output_multi_email.xlsx"  # final output
-EMAIL_XLSX   = r"C:\path\to\email.xlsx"               # file with PAN + multiple email columns
-ED2_XLSX     = r"C:\path\to\ed2.xlsx"                 # file with PAN + PAN_NAME (customer name)
-# ==========================
+src_folder = r"D:\all_pdfs"       # change this
+dest_folder = r"D:\filtered_pdfs" # change this
 
-quarter_to_period = {
-    "Q1": "April–June",
-    "Q2": "July–September",
-    "Q3": "October–December",
-    "Q4": "January–March",
-}
+os.makedirs(dest_folder, exist_ok=True)
 
-def normalize_pan(x):
-    if pd.isna(x):
-        return None
-    return str(x).strip().upper()
+target_years = {"2020-21", "2021-22", "2022-23"}  # years to move
 
-# ---- Step 1: build base rows from filenames
-rows = []
-folder = Path(INPUT_FOLDER)
+all_files = [f for f in os.listdir(src_folder) if f.lower().endswith(".pdf")]
 
-for p in folder.glob("*.pdf"):
-    parts = p.stem.split("_")
-    if len(parts) < 4:
-        continue
+files_to_move = []
 
-    pan = normalize_pan(parts[0])
-    quarter = parts[2].upper()
+for f in all_files:
+    parts = f.split("_")
+    if len(parts) >= 4:
+        year = parts[2]  # e.g. "2020-21"
+        if year in target_years:
+            files_to_move.append(f)
 
-    rows.append({
-        "FILENAME": p.name,
-        "PASSCODE": pan,
-        "QUARTER": quarter,
-        "PERIOD": quarter_to_period.get(quarter, ""),
-        "ZONE": "WI"
-    })
+print(f"Total PDFs to move: {len(files_to_move)}")
 
-base_df = pd.DataFrame(rows, columns=["FILENAME", "PASSCODE", "QUARTER", "PERIOD", "ZONE"])
+for f in tqdm(files_to_move, desc="Moving PDFs"):
+    try:
+        shutil.move(os.path.join(src_folder, f),
+                    os.path.join(dest_folder, f))
+    except Exception as e:
+        print(f"Error moving {f}: {e}")
 
-# ---- Step 2: read email.xlsx (multi-email handling)
-email_df = pd.read_excel(EMAIL_XLSX, dtype=str)
-email_df.columns = [c.lower() for c in email_df.columns]
-
-# identify email columns
-email_cols = [c for c in email_df.columns if c.startswith("email")]
-if not email_cols:
-    email_df["email"] = ""
-    email_cols = ["email"]
-
-email_df["pan"] = email_df["pan"].map(normalize_pan)
-
-# wide → long (one row per PAN per email)
-long_email = email_df.melt(
-    id_vars=["pan"],
-    value_vars=email_cols,
-    var_name="email_col",
-    value_name="email"
-)
-long_email["email"] = long_email["email"].astype(str).str.strip()
-long_email = long_email.dropna(subset=["pan"])
-long_email = long_email[long_email["email"] != ""]       # drop blanks
-long_email = long_email.drop_duplicates(subset=["pan", "email"], keep="first")
-
-# ---- Step 3: read ed2.xlsx (for customer name)
-ed2_df = pd.read_excel(ED2_XLSX, dtype=str)
-ed2_df.columns = [c.lower() for c in ed2_df.columns]
-
-if "pan" not in ed2_df.columns or "pan_name" not in ed2_df.columns:
-    raise ValueError("ed2.xlsx must contain 'pan' and 'pan_name' columns.")
-
-ed2_df["pan"] = ed2_df["pan"].map(normalize_pan)
-ed2_df["pan_name"] = ed2_df["pan_name"].astype(str).str.strip()
-ed2_df = ed2_df.dropna(subset=["pan"]).drop_duplicates(subset=["pan"], keep="first")
-
-# ---- Step 4: merge base + emails
-merged = base_df.merge(
-    long_email[["pan", "email"]],
-    how="left",
-    left_on="PASSCODE",
-    right_on="pan"
-).drop(columns=["pan"])
-
-# ---- Step 5: add customer name from ed2
-merged = merged.merge(
-    ed2_df[["pan", "pan_name"]],
-    how="left",
-    left_on="PASSCODE",
-    right_on="pan"
-).drop(columns=["pan"])
-
-# ---- Step 6: rename columns & final structure
-out = merged.rename(columns={
-    "pan_name": "CUSTOMER NAME",
-    "email": "EMAIL_ADD1"
-})
-
-out = out[["FILENAME", "PASSCODE", "QUARTER", "PERIOD", "ZONE", "CUSTOMER NAME", "EMAIL_ADD1"]]
-out = out.fillna("")
-
-# ---- Step 7: save
-out.to_excel(OUTPUT_XLSX, index=False)
-print(f"Created {OUTPUT_XLSX} with {len(out)} rows.")
+print("✅ Done.")
